@@ -52,7 +52,7 @@ BUTTON的每个字母都是用span元素打包的，而span元素之间存在一
 
 ###  ②常用的nodeType？
 
-**➹：**[Node.nodeType - Web API 接口 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType)
+**➹：**[Node.nodeType - Web API 接口 - MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType)
 
 - `Node.ELEMENT_NODE`： 1
 
@@ -75,7 +75,7 @@ BUTTON的每个字母都是用span元素打包的，而span元素之间存在一
 一些认识，**✎：**
 
 1. []：可选
-2. |：或，总之选其中一个
+2. \|：或，总之选其中一个
 3. 似乎都在返回一个jQuery对象
 4. 可以为这个button添加没有空格的动效！
 
