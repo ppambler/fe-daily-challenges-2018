@@ -8,6 +8,11 @@
 
 **➹：**[front-end-daily-challenges](https://github.com/comehope/front-end-daily-challenges)
 
+## ★文档
+
+- [CSS](http://css.doyoe.com/)
+- [jQuery](http://jquery.cuishifeng.cn/)
+
 ## ★实战的目的
 
 - 100天后能独立根据设计稿还原成网页（真得可能吗？那就试一下吧！）
