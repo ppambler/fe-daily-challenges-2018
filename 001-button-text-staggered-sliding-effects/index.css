@@ -1,3 +1,102 @@
-.box {
- white-space: nowrap;
+/* rem是相对于html的font-size为16px来换算的 */
+/* 按钮居中： */
+body {
+	height: 100vh;
 }
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: papayawhip;
+}
+
+
+/* 设置按钮的尺寸和文字样式： */
+.box {
+	height: 3.75rem;
+	width: 12.5rem;
+	/* 这些魔法师作用于box这块魔法石的内部构造 */
+	line-height: 3.75rem;
+	border: 0.1em solid black;
+	border-radius: 0.3125rem;
+	text-align: center;
+	font-size: 1.875rem;
+	font-family: sans-serif;
+}
+
+/* 按钮的每个字母都设置为行内块元素，以便单独设置动效： */
+.box span {
+	/* 如果span元素的内在盒子不是block的话，那么下边的transform魔法师弄出来的魔法就对该span失效了 */
+	display: inline-block;
+	color: cyan;
+}
+
+/* 把字母交错地显示在按钮容器之外，第奇数个元素显示在上，第偶数个元素显示在下： */
+.box span:nth-child(odd) {
+	/* 这个100%这个值不是随意给出来的 */
+	/* translateY(ty)是translate(0, ty)的一种简写方式。即这里的是简写方式，相对于原点 */
+	transform: translateY(-100%);
+}
+.box span:nth-child(even) {
+	transform: translateY(100%);
+}
+
+
+/* 用伪元素为每个字母增加一个副本（分身）： */
+.box span::before {
+	/* 注意这是在span元素的content区域添加了一个等价于<span>B</span>这么一个伪元素，而且这是在前边 */
+	/* 相当于是<span>BB<span> */
+	content: attr(data-text);
+	color: lightcoral;
+	/* 「.box span::before」这个元素，即伪元素，称为「它自身」 */
+	/* 「.box span」称为「它（伪元素）的主元素」*/
+	/* position: absolute 是相对它的主元素定位的，它自身会脱离文档流。 */
+	/* 一脱离，那么就会变成<span>B</span>，然后伪元素的B显然z-index要比它的大，于是就覆盖了主身 */
+	/* 而position: relative 是相对它自身的位置（伪元素）定位的，它自身的位置在主元素之前。 */
+	/* 即<span>B(伪)B(主)</span> */
+	position: absolute;
+	/* 让主身回来压住分身 */
+	/* z-index: -1; */
+}
+
+
+/* 让伪元素的字母也交错显示，位置与其原始元素相对，即分身复位： */
+/* 错误的选择器写法姿势： */
+/* .box span::before:nth-child(odd) {
+	transform: translateY(100%);
+} */
+.box span:nth-child(odd)::before {
+	/* 拿到奇数元素的::before伪元素 */
+	/* 为啥transform会生效呢？因为该伪元素absolute了，改原来的inline为block了，即block-block */
+	/* 伪元素absolute可谓一箭双雕 */
+	transform: translateY(100%);
+}
+
+.box span:nth-child(even)::before {
+	transform: translateY(-100%);
+}
+
+/* 为按钮增加鼠标划过样式，设置緩动时间，使其有动画效果： */
+.box:hover span {
+	/* 按钮被hover了，让其中的文字主身归位 */
+	/* 与此同时，连锁反应触发，此时主身的translateY是0，而分身则下上平移100% */
+	transform: translateY(0);
+}
+.box span {
+	/* 添加缓动，不要让垂直（Y）平移变得很突兀 */
+	transition: .5s;
+}
+
+/* 最后，隐藏容器外的内容： */
+.box {
+	/* 不要影响其它元素盒子呀！ */
+	overflow: hidden;
+}
+/* 写到最后，突然觉得写上了行高，是很关键的，不然按钮里边的文字就同时存在分身了。*/
+/* 很多时候，你或许咩有留意到，你写的这个属性可能存在一箭双雕（或许也是一把双刃剑）的功效，如postion:absolute */
+/* 这个属性改变了display，进而让transform变得有用，起初我们只是想用分身覆盖主身罢了 */
+
+/* 代码理解不难，但是想法挺难的，思路挺难的！反正我就不停地写这些小案例吧，然后不停地试！讲真，属性的组合，所产生效果真得是千奇百怪！ */
+/* 当然，幸运的是，我可以看源码，我可以找到一条确定的路来做到这个效果 */
+/* 什么时候，能直接看效果，就能想出、写出它的HTML和CSS呢？ */
+/* 确定的路走多了，潜意识里自然会有野路子的走法，当然，这会让你走很多歧路，但这一定会很有趣！ */

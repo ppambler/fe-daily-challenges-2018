@@ -8,7 +8,28 @@ typora-copy-images-to: p
 
 **➹：**[前端每日实战：1# 视频演示如何用纯 CSS 创作一个按钮文字滑动特效 - 前端每日实战 - SegmentFault 思否](https://segmentfault.com/a/1190000014534572)
 
+**➹：**[Button text staggered sliding effects - Scrimba Tutorial—视屏演示，样式的书写步骤是怎样的](https://scrimba.com/c/c4vdvcL)
+
+## ★知识点
+
+- [::before](https://developer.mozilla.org/en-US/docs/Web/CSS/::before)
+- [translateY](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateY)
+- [data-*](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*)
+- [content](https://developer.mozilla.org/en-US/docs/Web/CSS/content)
+- [nth-child](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child)
+- [transform - CSS: Cascading Style Sheets - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)
+
+- [CSS实现垂直居中的常用方法 - ChessZhang - 博客园](https://www.cnblogs.com/yugege/p/5246652.html)
+
+> 关于mdn，如果可以请看英文，因为相较于中文的长久不更新，它是有最新的呀！
+>
+> 当然你可以看一遍中文有个大概意思之后，再去看英文，如果看中文能解决你对这个问题（如css问题）的认识，那么看了中文之后，也无须去看英文了，除非了看了中文还是不懂，那么就去看英文，还是不懂，那就看别人博客！
+
 ## ★小结
+
+- 效果：
+  - [Me](./index.html)，我理解过后的代码预览效果，具体的样式理解，在css代码里边有写到
+  - [Teacher](./demo/index.html)，这是源码预览效果
 
 ## ★Q&A
 
@@ -176,7 +197,7 @@ auto。
 
 **➹：**[深入理解CSS系列（二）：为什么height:100%不生效？ - ChessZhang - 博客园](https://www.cnblogs.com/yugege/p/9264319.html)
 
-### ④下边这段代码的作用？
+### ⑤下边这段代码的作用？
 
 ```css
 html, body {

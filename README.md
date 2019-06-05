@@ -19,6 +19,11 @@
 
 总之就是增加对CSS的熟悉度吧！
 
+## ★约定
+
+- 编辑器：使用HBuilder X，而不是vscode，因为前者有内置浏览插件呀！还有在编辑css的时候可以自动把px换算成rem单位的值（基于16px的换算规则）
+- 源码：一份源码，一份自己理解过后的源码
+
 ## ★目录
 
 - [001-用纯 CSS 创作一个按钮文字滑动特效](./001-button-text-staggered-sliding-effects/README.md)
