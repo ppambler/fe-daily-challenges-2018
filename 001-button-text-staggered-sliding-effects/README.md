@@ -14,7 +14,7 @@ typora-copy-images-to: p
 
 - [::before](https://developer.mozilla.org/en-US/docs/Web/CSS/::before)
 - [translateY](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateY)
-- [data-*](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*)
+- [data-](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*)
 - [content](https://developer.mozilla.org/en-US/docs/Web/CSS/content)
 - [nth-child](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child)
 - [transform - CSS: Cascading Style Sheets - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)
@@ -23,7 +23,7 @@ typora-copy-images-to: p
 
 > 关于mdn，如果可以请看英文，因为相较于中文的长久不更新，它是有最新的呀！
 >
-> 当然你可以看一遍中文有个大概意思之后，再去看英文，如果看中文能解决你对这个问题（如css问题）的认识，那么看了中文之后，也无须去看英文了，除非了看了中文还是不懂，那么就去看英文，还是不懂，那就看别人博客！
+> 当然你可以看一遍中文有个大概意思之后，再去看英文，如果看中文能解决你对这个问题（如css问题）的认识，那么看了中文之后，也无须去看英文了，除非你看了中文还是不懂，那么就去看英文，还是不懂，那就看别人博客！
 
 ## ★小结
 
@@ -215,3 +215,20 @@ html, body {
 
 > 如果包含块的高度没有显式指定（即高度由内容决定），并且该元素不是绝对定位，则计算值为
 > auto。 
+
+### ⑥作者（comehope）每天做的灵感来源是什么？
+
+> 灵感来源是 codepen 社区，大部分作品都是参考了别人的创意，我只是按自己的习惯重构了 dom 结构和 css 代码。在我 codepen 上每个作品的 comments 里都给出了原作的网址。
+
+### ⑦这个CSS代码？
+
+```css
+.box:hover span {
+    transform: translateY(0);
+}
+```
+
+让元素返回到它原始定位的纵坐标的位置。
+
+**➹：**[translateY() - CSS: Cascading Style Sheets - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateY)
+
