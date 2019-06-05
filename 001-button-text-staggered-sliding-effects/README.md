@@ -18,7 +18,6 @@ typora-copy-images-to: p
 - [content](https://developer.mozilla.org/en-US/docs/Web/CSS/content)
 - [nth-child](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child)
 - [transform - CSS: Cascading Style Sheets - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)
-
 - [CSS实现垂直居中的常用方法 - ChessZhang - 博客园](https://www.cnblogs.com/yugege/p/5246652.html)
 
 > 关于mdn，如果可以请看英文，因为相较于中文的长久不更新，它是有最新的呀！
