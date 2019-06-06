@@ -1,4 +1,4 @@
-# fe-daily-challenges-2018
+# [fe-daily-challenges-2018](https://github.com/ppambler/fe-daily-challenges-2018)
 
 我的CSS很菜！我想我得从实战入手了，就这样每天做个小案例就好！
 
@@ -27,6 +27,7 @@
 ## ★目录
 
 - [001-用纯 CSS 创作一个按钮文字滑动特效](./001-button-text-staggered-sliding-effects/README.md)
+- [002-如何用纯 CSS 创作一个矩形旋转 loader 特效](./002-rectangular-rotating-loader-animation/README.md)
 
 
 
