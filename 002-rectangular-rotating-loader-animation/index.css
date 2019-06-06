@@ -30,8 +30,8 @@ body {
 	height: 100vh;
 	margin:0;
 	padding:0;
-	border: 1px solid red;
-	background:black;
+	/* border: 1px solid red; */
+	background:#5c5a61;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -39,20 +39,108 @@ body {
 
 /* 设置容器的尺寸： */
 .loader {
-	border: 1px solid red;
-	width: 9.375rem;
-	height: 9.375rem;
+	/* border: 1px solid red; */
+	/* 测试父元素有padding会不会影响子元素为absolute且宽高为百分比的计算？——结果会影响，而border不会 */
+	/* 而且这个值的效果类似于给span添加了top和left值！ */
+	/* padding: 20px; */
+	/* 我没有设置rem单位，因为我想看看子元素为absolute，然后设置100%宽高，然后这宽高是怎样确定的？ */
+	width: 150px; 
+	height: 150px;
 	position: relative;
 }
 
-/* 设置矩形的边框样式： */
+/* 统一设置三个span矩形的边框样式： */
+.loader span {
+	position: absolute;
+	/* 如果span这个内在盒子是默认的content-box的话，那么该盒子设置为100%*100%将回溢出容器 */
+	box-sizing: border-box;
+	border: 10px solid #8c807d;
+	border-radius: 2px;
+}
+
 
 /* 设置 3 个矩形的尺寸： */
+.loader span:nth-child(1) {
+	/* 这个百分值是相对于哪个元素的宽高来确定的？ */
+	/* 父元素或祖先元素定位了，那么子元素的宽高就是根据它们的content+padding（不含border）来计算的， */
+	/* 决定了整个盒子的最终大小150*150 */
+    width: 100%; 
+    height: 100%;
+}
+.loader span:nth-child(2) {
+    width: 70%;
+    height: 70%;
+	/* 同样是相对于父元素的宽度（content+padding）,上下的margin-top/bottom也是如此，不会因为父元素的高度变化了，其margin也会跟着变化 */
+    margin: 15%; //22.5px
+}
+
+.loader span:nth-child(3) {
+    width: 40%;
+    height: 40%;
+    margin: 30%; //45px
+}
 
 /* 用伪元素绘制左上和右下的装饰条： */
+.loader span::before,
+.loader span::after {
+    content: '';
+	/* 叠在一起了，因为都是基于父元素span的absolute， */
+    position: absolute;
+    width: 10px;
+	/* 来自于父元素span，的padding+content(不包含border) */
+    height: 50%;
+    background-color: #dcdcdd;
+}
 
+.loader span::before {
+	/* 上移10px, 左移10px */
+    top: -10px;
+    left: -10px;
+}
+
+.loader span::after {
+	/* 同样，右下极限后的偏移10px */
+    bottom: -10px;
+    right: -10px;
+}
 /* 定义动画效果： */
+@keyframes rotatingY{
+	/* ；类似于翻牌，钢管舞 */
+	from{
+		transform: rotateY(0deg);
+	}
+	to{
+		transform: rotateY(360deg);
+	}
+}
 
 /* 把动画应用到 3 个矩形上： */
+.loader span {
+	animation: rotatingY linear infinite;
+}
+.loader span:nth-child(1) {
+	/* 完成一帧动画所需要的时候，即从0deg到360deg需要4s */
+    animation-duration: 4s;
+}
+
+.loader span:nth-child(2) {
+    animation-duration: 2s;
+}
+
+.loader span:nth-child(3) {
+    animation-duration: 1s;
+}
+
 
 /* 最后，设置一下 3 个矩形的堆叠顺序： */
+.loader span:nth-child(1) {
+    z-index: 3;
+}
+
+.loader span:nth-child(2) {
+    z-index: 2;
+}
+
+.loader span:nth-child(3) {
+    z-index: 1;
+}

@@ -10,6 +10,17 @@ typora-copy-images-to: p
 
 **➹：**[Button text staggered sliding effects - Scrimba Tutorial—视屏演示，样式的书写步骤是怎样的](https://scrimba.com/c/c4vdvcL)
 
+## ★源码
+
+**➹：**[fe-daily-challenges-2018/001-button-text-staggered-sliding-effects at master · ppambler/fe-daily-challenges-2018](https://github.com/ppambler/fe-daily-challenges-2018/tree/master/001-button-text-staggered-sliding-effects)
+
+**➹：**[front-end-daily-challenges/001-button-text-staggered-sliding-effects at master · comehope/front-end-daily-challenges](https://github.com/comehope/front-end-daily-challenges/tree/master/001-button-text-staggered-sliding-effects)
+
+## ★预览效果
+
+- [Me](./index.html)，我理解过后的代码预览效果，具体的样式理解，在css代码里边有写到
+- [Teacher](./demo/index.html)
+
 ## ★知识点
 
 - [::before](https://developer.mozilla.org/en-US/docs/Web/CSS/::before)
@@ -26,9 +37,7 @@ typora-copy-images-to: p
 
 ## ★小结
 
-- 效果：
-  - [Me](./index.html)，我理解过后的代码预览效果，具体的样式理解，在css代码里边有写到
-  - [Teacher](./demo/index.html)，这是源码预览效果
+- 你得知道如何确定一个元素的高度！
 
 ## ★Q&A
 
