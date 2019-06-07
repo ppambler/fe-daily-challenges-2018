@@ -51,6 +51,10 @@ typora-copy-images-to: p
 
   ![钢管舞](p/images-1559813292404.jpg)
 
+  还可以看做是转呼啦圈：
+
+  ![1](p/1.gif)
+
   rotateX则是你面朝跳水看台时，运动员从高台跳下来时的正面旋转
 
   ![img](p/tiaoshui.jpg)
