@@ -28,3 +28,5 @@ typora-copy-images-to: p
 
 ## ★Q&A
 
+### ①linear-gradient？
+
