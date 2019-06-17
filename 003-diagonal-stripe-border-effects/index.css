@@ -18,14 +18,13 @@ body  {
     height: 300px;
     background: linear-gradient(
         -45deg,
-        #FF8235 0%,
-        #FF8235 25%,
-         #30E8BF 25%,
-         #30E8BF 50%,
-        #FF8235 50%,
-        #FF8235 75%,
-         #30E8BF 75%,
-         #30E8BF 100%);
+        white 0%,
+        white 25%,
+        hotpink 25%,
+        hotpink 50%,
+        white 50%,
+        white 75%,
+        hotpink 75%,
+        hotpink 100%);
     background-size: 10%;
-
 }
