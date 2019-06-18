@@ -26,5 +26,6 @@ body  {
         white 75%,
         hotpink 75%,
         hotpink 100%);
-    background-size: 10%;
+    background-size: 10% 10%;
+    /* border: 10px dotted red; */
 }
