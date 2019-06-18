@@ -6,7 +6,6 @@
 body  {
 	box-sizing: border-box;
 	height: 100vh;
-	border: 1px solid red;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -28,4 +27,67 @@ body  {
         hotpink 100%);
     background-size: 10% 10%;
     /* border: 10px dotted red; */
+}
+
+/* 在 box 容器内定义一个名为 content 的容器： */
+
+/* box 容器留出厚边框，content 容器嵌在其中： */
+.box .content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.box .content {
+    background-color: white;
+}
+
+/* 设置厚边框的立体效果： */
+.box,
+.box .content {
+    box-shadow: 0 0 2px deeppink,
+                0 0 5px rgba(0, 0, 0, 1),
+                inset 0 0 5px rgba(0, 0, 0, 1);
+    border-radius: 10px;
+}
+
+/* content 容器中增加内容： */
+
+/* 内容布局： */
+.box .content {
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 30px;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.box .content h2 {
+    color: deeppink;
+}
+
+.box .content p {
+    color: dimgray;
+}
+
+/* 定义动画效果： */
+@keyframes animate {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: 10%;
+    }
+}
+
+/* 最后，把动画效果应用到 box 容器上： */
+.box {
+    animation: animate .5s linear infinite;
 }

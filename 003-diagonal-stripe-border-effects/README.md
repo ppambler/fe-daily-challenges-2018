@@ -237,7 +237,7 @@ abs（W * sin（A））+ abs（H * cos（A））
    小于0%的情况：
    ![1560836289511](p/1560836289511.png)
 
-   再无厘头的复杂（色标定位的百分比是无序的）：
+   再无厘头的复杂（**色标定位的百分比是无序的**）：
 
    事实上色标是有序的，但是这没有什么方法可以防止你不这样做，如果你不这样做，就不会发生任何可怕的事情，如果你真得这样做了，也没事，因为浏览器会纠正你，就像这样：
 
@@ -342,4 +342,11 @@ abs（W * sin（A））+ abs（H * cos（A））
 
 **➹：**[background-size - CSS: Cascading Style Sheets - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size)
 
-③repeating-linear-gradient？破解chrome
+### ③堆叠上下文？
+
+![堆叠上下文](p/2016-01-07_223349.png)
+
+**➹：**[深入理解CSS中的层叠上下文和层叠顺序 « 张鑫旭-鑫空间-鑫生活](https://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/)
+
+### ④用repeating-linear-gradient代替linear-gradient？
+
