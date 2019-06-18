@@ -350,3 +350,59 @@ abs（W * sin（A））+ abs（H * cos（A））
 
 ### ④用repeating-linear-gradient代替linear-gradient？
 
+之前用了linear-gradient写渐变：
+
+```css
+.box {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(
+        -45deg,
+        white 0%,
+        white 25%,
+        hotpink 25%,
+        hotpink 50%,
+        white 50%,
+        white 75%,
+        hotpink 75%,
+        hotpink 100%);
+    background-size: 10% 10%;
+}
+```
+
+然而还有一种函数，可以方便快捷的做到，那就是我们之前提到的 `repeating-linear-gradient`啦
+
+它的用法同 `linear-gradient`一样，即会传一样的参数，只是它会朝四面八方无限地重复色标，其返回值同样是 `<image>`类型里边的一种。
+
+
+
+### ⑤`transparent`是一种怎样的值？它与 `opacity:0`有区别吗？
+
+transparent就像你写red一样，它表示颜色的一种——透明色，视觉上看相当于看不见颜色，类似于 `opacity：1`的视觉呈现。
+
+总之你怎么看red，那么你就怎么看transparent
+
+而`opacity:0`表示元素是透明的，这其中还包括内容，即该属性可以被继承。
+
+关于rgba的a，这个a同样用于设置透明度，但是它并不会被继承，毕竟我们要么用于color属性，background属性。
+
+总之，一个只针对一个人，一个针对的是一群人。
+
+**➹：**[css中background-color:transparent与opacity:0有什么区别？ - 知乎](https://www.zhihu.com/question/20330932)
+
+### ⑥What is Lorem Ipsum?
+
+这只是一段用来测试排版效果的占位文字，没有实际的含义。
+
+总之，就是一段假文，看起来好像有很多中文或单词，实际上内容毫无逻辑。
+
+生成有逻辑的假文：[malevole - 文本生成器](http://www.malevole.com/mv/misc/text/)
+
+**➹：**[关于Lorem ipsum - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2009/04/lorem_ipsum.html)
+
+**➹：**[设计中经常看到的Lorem ipsum是什么意思？ - 简书](https://www.jianshu.com/p/e6fdd2dce19c)
+
+**➹：**[超实用！12个你应该知道的中英文假字+文章在线生成网站 - 优设网 - UISDC](https://www.uisdc.com/12-lorem-ipsum-generator)
+
+**➹：**[Lorem Ipsum - All the facts - Lipsum generator](https://www.lipsum.com/)
+

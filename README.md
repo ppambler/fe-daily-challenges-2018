@@ -26,8 +26,9 @@
 
 ## ★目录
 
-- [001-用纯 CSS 创作一个按钮文字滑动特效](./001-button-text-staggered-sliding-effects/README.md)
+- [001-如何用纯 CSS 创作一个按钮文字滑动特效](./001-button-text-staggered-sliding-effects/README.md)
 - [002-如何用纯 CSS 创作一个矩形旋转 loader 特效](./002-rectangular-rotating-loader-animation/README.md)
+- [003-如何用纯 CSS 创作一个容器厚条纹边框特效](./003-diagonal-stripe-border-effects/README.md)
 
 
 
