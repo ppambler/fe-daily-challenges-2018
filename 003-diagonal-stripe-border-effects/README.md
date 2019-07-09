@@ -378,6 +378,8 @@ abs（W * sin（A））+ abs（H * cos（A））
 
 ### ⑤`transparent`是一种怎样的值？它与 `opacity:0`有区别吗？
 
+![preview](p/c3d20be0c07969bb03df52c5936e01c8_r.jpg)
+
 transparent就像你写red一样，它表示颜色的一种——透明色，视觉上看相当于看不见颜色，类似于 `opacity：1`的视觉呈现。
 
 总之你怎么看red，那么你就怎么看transparent
@@ -405,4 +407,189 @@ transparent就像你写red一样，它表示颜色的一种——透明色，视
 **➹：**[超实用！12个你应该知道的中英文假字+文章在线生成网站 - 优设网 - UISDC](https://www.uisdc.com/12-lorem-ipsum-generator)
 
 **➹：**[Lorem Ipsum - All the facts - Lipsum generator](https://www.lipsum.com/)
+
+### ⑦rem单位作用范围？
+
+我知道rem一般都是作用于字体font-size的，可是padding、margin、width、height、border-width、text-shadow等属性需要写成rem吗？
+
+关于对一些单位的认识：
+
+> 百分比的CSS数据类型为 ` <length-percentage>`，而不是 `<length>`
+
+- em和rem，通常用于创建可伸缩的布局，即使用户更改字体大小，这些布局也能保持页面的垂直韵律。em是相对单位，如果当前元素重新设置了字体大小了，那么就相对于该元素，如果没有，那么就是相对于继承而来的font-size值。rem相对的是根元素（通常是html元素）的font-size值，一般浏览器默认根元素的值为16px，但是用户可以自行设定。
+
+  它们俩的区别：rem是以根元素为参照物的 em 单位
+
+- px按照我之前的理解是相对定位，因为不同设备下的分辨率是不同的，其1个px可能代表的不是1个物理像素，而是多个。不过MDN说它是绝对单位我也无法可说。
+
+  ![1562674379886](p/1562674379886.png)
+
+  一般屏幕上1个px为0.03cm=0.3mm。
+
+- cm：它是绝对单位呀，在PC上1cm大约就是（96px/2.54）38px了，不过这是1in为96px的情况，简单来说，就是1斤为96个小果子，每个果子为1/96斤，即1个px为1/96in。
+
+回过头来看rem。
+
+话说为啥需要rem呢？
+
+假如在根元素的文字大小为默认值 `16px` 的情况下，我们想要所有列表的字体大小均为 `12px` :
+
+```css
+html {
+  font-size: 100%; //16px
+}
+
+ul {
+  font-size: 0.75em;
+}
+```
+
+如果存在嵌套的ul元素，如：
+
+```html
+<ul>
+  <li>
+    <ul>
+    	<li></li>
+    </ul>
+  </li>
+</ul>
+```
+
+效果类似于这样：
+
+- 第一个ul的li
+  - 第二个ul的li
+
+那么第二个ul的下的font-size就是9px了。
+
+当然，如果你写成这样就没事了：
+
+```css
+ul ul {
+  font-size: 1em; //第一个ul为12px，所以第二个继承过来的12px*1也是12px
+}
+```
+
+可是这样做岂不是耦合了第一个ul？
+
+所以我们应该用rem，这样会简单很多：
+
+```css
+html {
+  font-size: 100%;
+}
+
+ul {
+  font-size: 0.75rem;
+}
+```
+
+**当所有尺寸都以根元素的文字大小作为参照后，就不再需要为嵌套的元素单独定义样式了**。
+
+不过使用rem为单位的数值就是计算起来非常不方便，比如0.75rem（`0.75*16=12px`）、1rem（`1*16=16px`）、1.125rem（`1.125*16 = 18px`）等这样的
+
+那么如何解决计算不方便的问题呢？
+
+1. 使用62.5大法，把根元素的默认16px改为62.5%，即为10px。至此我们写成0.75rem，就能一眼看出来是7.5px了……当然，我们一般写成是1.2rem，即为12px……
+
+   虽然解决了计算不方便，但这会迫使开发者重写他们网站中的所有文字大小。比如我们之前写的是0.75rem，那么现在就得是1.2rem了。
+
+2. 根元素的长度单位依旧采用 `px` ，模块用 rem 单位，模块内的元素使用 em 单位：
+
+   ```css
+   /* Document level adjustments */
+   html {
+     font-size: 17px;
+   }
+   @media (max-width: 900px) {
+     html { font-size: 15px; }
+   }
+   @media (max-width: 400px) {
+     html { font-size: 13px; }
+   }
+   
+   /* Modules will scale with document */
+   .header {
+     font-size: 1.5rem;
+   }
+   .footer {
+     font-size: 0.75rem;
+   }
+   .sidebar {
+     font-size: 0.85rem;
+   }
+   
+   /* Type will scale with modules */
+   h1 {
+     font-size: 3em;
+   }
+   h2 {
+     font-size: 2.5em;
+   }
+   h3 {
+     font-size: 2em;
+   }
+   ```
+
+   **这种方式可以很容易的操作根元素的大小，至此缩放模块也不再话下了。而模块内内容的大小以模块自身文字大小来进行缩放**。
+
+   > 根px，模rem，内em。
+   >
+   > em可用于margin、padding、width、max-width、height、 top、right、border、 border-radius等
+
+关于在媒体查询中使用 rem 单位：
+
+> 在 HTML 中，**em 单位与用户浏览器或者用户偏好设置中设置的初始文字大小有关，而不是页面上的样式中定义的文字大小**
+
+如下面是两条媒体查询语句，一条是使用 rem 单位，另一条使用 em 单位（这里为了简便，使用了 Sass）：
+
+```css
+html {
+  font-size: 62.5%; /* 62.5% of 16px = 10px */
+
+  @media (min-width: 20rem) { 
+    /* 20*16px = 320px */
+    background-color: lemonchiffon;
+    font-size: 200%;
+    /* 200% of 16px = 32px */
+  }
+
+  @media (min-width: 30em) {
+    /* 30*16px = 480px */
+    background-color: lightblue;
+    font-size: 300%; /* 300% of 16px = 48px */（译：原文是48px）
+  }
+}
+```
+
+你认为media会理会html的font-size的10px？——不，它不会。
+
+你可看到，我们使用了62.5大法，然而修改根元素字体大小不会对媒体查询产生任何影响。
+
+即当设备宽度为320px时，该媒体查询就会起效果了，而不是200px；同理300px也不会起效果。而且其里边的内容也是无视62.5大法。
+
+总之，唯一一个可以改变媒体查询中宽度的是在浏览器里更改默认文字大小。
+
+因此，在媒体查询语句中使用 em 单位还是 rem 单位已经不那么重要。而在现实中，无论是[Foundation v5](http://foundation.zurb.com/)还是最近刚发布的[Bootstrap v4 alpha](http://v4-alpha.getbootstrap.com/)都在他们的媒体查询中使用了 em 单位。
+
+当然，如果你要做缩放文档的话，那么我建议你使用rem单位：
+
+我们使用 rem 来定义元素的宽度、外边距和内边距 ，通过使用根元素的字体大小作为一个接口使元素缩放一致变为了可能。
+
+[demo](https://codepen.io/SitePoint/pen/EVmwjZ/)
+
+---
+
+**➹：**[分辨率与比例尺 - ParamousGIS - 博客园](https://www.cnblogs.com/gispathfinder/p/6087566.html)
+
+**➹：**[`<length>` - CSS: Cascading Style Sheets - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
+
+**➹：** [了解并使用 CSS 中的 rem 单位 - 众成翻译](https://www.zcfy.cc/article/understanding-and-using-rem-units-in-css-1411.html)
+
+**➹：**[Font Size Idea: px at the Root, rem for Components, em for Text Elements | CSS-Tricks](https://css-tricks.com/rems-ems/)
+
+**➹：**[The Power of em Units in CSS — SitePoint](https://www.sitepoint.com/power-em-units-css/)
+
+**➹：**[Rem布局的原理解析](https://yanhaijing.com/css/2017/09/29/principle-of-rem-layout/)
 
