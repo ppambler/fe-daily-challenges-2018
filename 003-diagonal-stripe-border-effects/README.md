@@ -579,6 +579,8 @@ html {
 
 [demo](https://codepen.io/SitePoint/pen/EVmwjZ/)
 
+> 不过，就目前而言，一般都会用vh和vw来做响应式
+
 ---
 
 **➹：**[分辨率与比例尺 - ParamousGIS - 博客园](https://www.cnblogs.com/gispathfinder/p/6087566.html)
@@ -587,9 +589,48 @@ html {
 
 **➹：** [了解并使用 CSS 中的 rem 单位 - 众成翻译](https://www.zcfy.cc/article/understanding-and-using-rem-units-in-css-1411.html)
 
-**➹：**[Font Size Idea: px at the Root, rem for Components, em for Text Elements | CSS-Tricks](https://css-tricks.com/rems-ems/)
+**➹：**[Font Size Idea: px at the Root, rem for Components, em for Text Elements - CSS-Tricks](https://css-tricks.com/rems-ems/)
 
 **➹：**[The Power of em Units in CSS — SitePoint](https://www.sitepoint.com/power-em-units-css/)
 
 **➹：**[Rem布局的原理解析](https://yanhaijing.com/css/2017/09/29/principle-of-rem-layout/)
+
+### ⑧background这个属性？
+
+关于颜色：
+
+有多种表示法（如#、rgb、hsl、rgba、hsla），但是这不过是表示同一种事物的不同方法罢了
+
+> 注意点：文本与背景的对比度不能太低了，不然强光下看网页那就GG了。推荐个颜色对比度参考网站：
+>
+> **➹：**[Contrast Rebellion - to hell with unreadable, low-contrast texts!](https://contrastrebellion.com/)
+
+我们使用图片有两种姿势：
+
+- 一种是HTML姿势的img元素——内容图片
+- 一种是CSS姿势的`url()`——背景图片
+
+那么何时使用它们呢？
+
+图片咩有意义，只是起到装饰作用，那么可以用背景图片，当然，装饰有时候也是一种意义，比如你去掉图片发觉对整个网站的观感完全变了一个样，那么此时你可以用内容图片。
+
+关于对背景图片使用的注意点：
+
+- 以防元素的背景图片加载失败，你最好添加个背景色
+
+回到background这个属性：
+
+它是个简写属性，你写了这个属性，然后你只写了一个color值，那么这意味着它的其它没有显示写出来的值是默认值。
+
+> 如果你在写background属性之前，用到了background-color之类的属性，那么它们就会被background给覆盖掉，毕竟CSS它有层叠性啊。
+
+探讨background其它的值：
+
+1. background-repeat：
+   - 默认值：repeat（背景图沿x和y轴重复，适合花纹图案的背景图，不适合照片）
+   - 其它值：repeat-x（只沿x轴重复）、repeat-y（只沿y轴重复）、no-repeat（不重复，适合照片）
+   - 进化：
+     1. 扩展语法（本来只有单值语法，现在则多了双值语法）：可以同时写两个值（前x后y），如 `background-repeat：repeat no-repeat;`等价于 `repeat-x`
+     2. 新增关键字：space（不变形，可以用间隙弥补填不满）和round（图片会变形，因为需要填满，而且还得重复为整数），它们俩可以同时设置，也可以单独设置。那么它们何时用呢？其实它们并咩有多大用处，不过常用于让设计保持某种对称性。
+2. background-image：
 
