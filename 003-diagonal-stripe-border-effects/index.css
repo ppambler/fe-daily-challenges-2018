@@ -54,7 +54,7 @@ body  {
     box-shadow: 0 0 2px deeppink,
                 0 0 5px rgba(0, 0, 0, 1),
                 inset 0 0 5px rgba(0, 0, 0, 1);
-    border-radius: 10px;
+    border-radius: 1em;
 }
 
 /* content 容器中增加内容： */
@@ -78,16 +78,14 @@ body  {
 
 /* 定义动画效果： */
 @keyframes animate {
-    from {
-        background-position: 0;
-    }
+    
 
     to {
-        background-position: 10%;
+        background-position: 0 30em;
     }
 }
 
 /* 最后，把动画效果应用到 box 容器上： */
 .box {
-    animation: animate .5s linear infinite;
+    animation: animate 30s linear infinite;
 }
